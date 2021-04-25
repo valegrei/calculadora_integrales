@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Calcula Integrales</string>
+    <string name="func_to_integer">Función a integrar</string>
+    <string name="f_x">f(x) =</string>
+    <string name="interval_a_b">Intervalo [a, b]</string>
+    <string name="a">a =</string>
+    <string name="b">b =</string>
+    <string name="numb_intervals">Nro de Intervalos</string>
+    <string name="calculate">Calcular</string>
+    <string name="n">n =</string>
+    <string name="formula">f(x)=%s; intg(f,%s,%s)</string>
+</resources>
