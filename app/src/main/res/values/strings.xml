@@ -9,4 +9,5 @@
     <string name="calculate">Calcular</string>
     <string name="n">n =</string>
     <string name="formula">f(x)=%s; intg(f,%s,%s)</string>
+    <string name="evalua">x=0;%s</string>
 </resources>

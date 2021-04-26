@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
             String n_s = binding.valN.getText().toString();
 
             try {
-                MathExpression expr = new MathExpression(getString(R.string.formula,fxInput,a_s,b_s));
-                String resultado = expr.solve();
+                double calc = integra_rect(fxInput, a_s, b_s, n_s);
+                String resultado = String.valueOf(calc);
                 binding.txtResultado.setText(resultado);
                 Log.d(TAG,"result: " + resultado);
             }catch (Exception e){
@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
     private void mostrarError(String msg){
         binding.txtError.setText(msg);
     }
@@ -47,5 +46,21 @@ public class MainActivity extends AppCompatActivity {
     private void limpiar(){
         binding.txtError.setText(null);
         binding.txtResultado.setText(null);
+    }
+
+    private double integra_rect(String func, String ini, String fin, String iter){
+        MathExpression expr = new MathExpression(getString(R.string.evalua,func));
+        double integral = 0.0;
+        double ini_d = Double.parseDouble(ini);
+        double fin_d = Double.parseDouble(fin);
+        double iter_d = Double.parseDouble(iter);//
+        double step = (fin_d-ini_d)/iter_d;
+        double e = 0.0;
+        for (int i = 0; i<iter_d; i++){
+            e = ini_d + step * (i+0.5);
+            expr.setValue("x", String.valueOf(e));
+            integral += step * Double.parseDouble(expr.solve());
+        }
+        return integral;
     }
 }
